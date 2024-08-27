@@ -39,7 +39,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" src="src/img/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="src/img/logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />
@@ -64,11 +64,14 @@
 			</span>
 		</header>
 		<section class="skeleton-section">
+			<!-- svelte-ignore a11y-missing-content -->
 			<h1 class="skeleton-title"></h1>
 			<div class="skeleton-flex">
+				<!-- svelte-ignore a11y-missing-content -->
 				<h2 class="skeleton-subtitle"></h2>
 				<div class="skeleton-circle"></div>
 			</div>
+			<!-- svelte-ignore a11y-missing-content -->
 			<h3 class="skeleton-text"></h3>
 		</section>
 
@@ -92,7 +95,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" src="src/img/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="src/img/logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />
@@ -143,7 +146,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" src="src/img/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="src/img/logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />
@@ -172,15 +175,21 @@
 			<h1>{weatherFetch.name}</h1>
 			<h4>{weatherFetch.country}</h4>
 			<div>
-				<h2>{Math.round(measureSystem==="imperial" ? weatherFetch.temperature.temp_f : weatherFetch.temperature.temp_c)}º{measureSystem==="imperial" ? "F" : "C"}</h2>
+				<h2>
+					{Math.round(
+						measureSystem === 'imperial'
+							? weatherFetch.temperature.temp_f
+							: weatherFetch.temperature.temp_c
+					)}º{measureSystem === 'imperial' ? 'F' : 'C'}
+				</h2>
 				<WeatherIcon icon={weatherFetch.condition.icon} width="130" />
 			</div>
 			<h3>{weatherFetch.conditionText}</h3>
 		</section>
 		<WeatherInfo
-			feelsLike={`${measureSystem==="imperial" ? weatherFetch.feelsLike.feelslike_f : weatherFetch.feelsLike.feelslike_c}º ${measureSystem==="imperial" ? 'F' : 'C'}`}
+			feelsLike={`${measureSystem === 'imperial' ? weatherFetch.feelsLike.feelslike_f : weatherFetch.feelsLike.feelslike_c}º ${measureSystem === 'imperial' ? 'F' : 'C'}`}
 			humidity={`${weatherFetch.humidity}%`}
-			windSpeed={`${measureSystem==="imperial" ? weatherFetch.windSpeed.wind_mph + " mph" : weatherFetch.windSpeed.wind_kph + " kph" }`}
+			windSpeed={`${measureSystem === 'imperial' ? weatherFetch.windSpeed.wind_mph + ' mph' : weatherFetch.windSpeed.wind_kph + ' kph'}`}
 		/>
 		<section>
 			<ForecastInfo forecast={forecast.forecast.forecastday} />
@@ -190,8 +199,9 @@
 				<h5>myWeatherApp</h5>
 				<p>
 					Weather App is a simple weather application that allows users to search for a city and get
-					the current weather and a 3-day forecast.
-					Project created by <a href="https://github.com/MyNameIsJeff-305">Michel Garcia Ribalta</a>
+					the current weather and a 3-day forecast. Project created by <a
+						href="https://github.com/MyNameIsJeff-305">Michel Garcia Ribalta</a
+					>
 				</p>
 			</div>
 			<div class="measures-container">
@@ -229,8 +239,10 @@
 	main {
 		background-size: cover;
 		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		width: 100%;
-		min-height: 100vh;
+		min-height: auto;
 		transition: background-image 0.3s ease;
 	}
 

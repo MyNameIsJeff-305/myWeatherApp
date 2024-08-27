@@ -1,8 +1,8 @@
 const options = {
     method: 'GET',
     headers: {
-        'x-rapidapi-key': 'f10d38ab8emsh10f151e116c129dp153919jsna48181177c11',
-        'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
+        'x-rapidapi-key': import.meta.env.VITE_RAPIDAPI_KEY,
+        'x-rapidapi-host': import.meta.env.VITE_RAPIDAPI_HOST
     }
 };
 

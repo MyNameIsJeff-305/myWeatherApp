@@ -31,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"dotenv": "^16.4.5",
 		"moment": "^2.30.1",
 		"skeleton-elements": "^4.0.1"
 	}
