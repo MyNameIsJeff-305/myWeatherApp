@@ -39,7 +39,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" alt="This is the App's Logo" src="static/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />
@@ -95,7 +95,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" alt="This is the App's Logo" src="static/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />
@@ -146,7 +146,7 @@
 		<header>
 			<span class="upper-bar-container">
 				<div>
-					<img class="logo" alt="This is the App's Logo" src="static/logo.png" />
+					<img class="logo" alt="This is the App's Logo" src="logo.png" />
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Search for a city" bind:value={city} />

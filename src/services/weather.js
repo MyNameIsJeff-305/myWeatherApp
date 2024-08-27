@@ -8,20 +8,20 @@ const options = {
 
 const getConditionImageURL = (condition) => {
     if (condition.includes('sunny') || condition.includes('Sunny') || condition.includes('clear') || condition.includes('Clear')) { //OK
-        return "static/sunny.jpg";
+        return "sunny.jpg";
     } else if (condition.includes('cloudy') || condition.includes('Cloudy')) { //OK
-        return "static/cloudy.jpg";
+        return "cloudy.jpg";
     } else if (condition.includes('rain') || condition.includes('Rain')) { //OK
         if (condition.includes('storm') || condition.includes('Storm') || condition.includes('thunder') || condition.includes('Thunder') || condition.includes('lightning') || condition.includes('Light') || condition.includes('light')) {
-            return "static/storm.jpg";
+            return "storm.jpg";
         }
-        return "static/rainy.jpg";
+        return "rainy.jpg";
     } else if (condition.includes('snow') || condition.includes('Snow')) {
-        return "static/snow.jpg";
+        return "snow.jpg";
     } else if (condition.includes('fog') || condition.includes('Fog')) {
-        return "static/fog.jpg";
+        return "fog.jpg";
     } else {
-        return "static/default.jpg";
+        return "default.jpg";
     }
 };
 
