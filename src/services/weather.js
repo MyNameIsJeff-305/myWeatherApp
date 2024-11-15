@@ -7,9 +7,7 @@ const options = {
 };
 
 export const getLocation = async () => {
-    const response = await fetch('https://ipapi.co/json/');
-    const data = await response.json();
-    return data;
+    
 }
 
 const getConditionImageURL = (condition) => {

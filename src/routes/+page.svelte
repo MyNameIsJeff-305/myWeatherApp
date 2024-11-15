@@ -28,12 +28,40 @@
 			loading = false;
 		}
 	}
+
+	async function getWeatherByCoords(lat, lon) {
+    loading = true;
+    error = null;
+
+    try {
+        const query = `${lat},${lon}`; // Format supported by the API
+        weatherFetch = await getWeatherFrom(query);
+        forecast = await getForecast(query, 5);
+        measureSystem = 'imperial';
+    } catch (e) {
+        error = 'Could not fetch weather for the location';
+    } finally {
+        loading = false;
+    }
+}
 	
 	onMount(() => {
-		let location = getLocation();
-		console.log(location)
-		getWeather("Miami");
-	});
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const { latitude, longitude } = position.coords;
+                await getWeatherByCoords(latitude, longitude);
+            },
+            async (error) => {
+                console.warn('Geolocation denied or unavailable. Defaulting to Miami.');
+                await getWeather('Miami');
+            }
+        );
+    } else {
+        console.warn('Geolocation not supported by the browser. Defaulting to Miami.');
+        getWeather('Miami');
+    }
+});
 </script>
 
 {#if loading}
