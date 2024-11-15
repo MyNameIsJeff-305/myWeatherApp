@@ -31,7 +31,8 @@
 	
 	onMount(() => {
 		let location = getLocation();
-		getWeather(location.city);
+		console.log(location)
+		getWeather("Miami");
 	});
 </script>
 
