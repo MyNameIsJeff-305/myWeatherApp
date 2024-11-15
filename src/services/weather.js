@@ -6,6 +6,12 @@ const options = {
     }
 };
 
+export const getLocation = async () => {
+    const response = await fetch('https://ipapi.co/json/');
+    const data = await response.json();
+    return data;
+}
+
 const getConditionImageURL = (condition) => {
     if (condition.includes('sunny') || condition.includes('Sunny') || condition.includes('clear') || condition.includes('Clear')) { //OK
         return "sunny.jpg";

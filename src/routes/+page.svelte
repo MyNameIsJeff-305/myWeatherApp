@@ -1,5 +1,5 @@
 <script>
-	import { getWeatherFrom, getForecast } from '../services/weather.js';
+	import { getWeatherFrom, getForecast, getLocation } from '../services/weather.js';
 	import WeatherInfo from './components/weather-info.svelte';
 	import WeatherIcon from './components/weather-icon.svelte';
 	import ForecastInfo from './components/forecast-info.svelte';
@@ -11,12 +11,12 @@
 	let loading = false;
 	let error = null;
 	let measureSystem = '';
-
+	
 	async function getWeather(city) {
 		if (!city) return;
 		loading = true;
 		error = null;
-
+		
 		try {
 			weatherFetch = await getWeatherFrom(city);
 			forecast = await getForecast(city, 5);
@@ -28,9 +28,10 @@
 			loading = false;
 		}
 	}
-
+	
 	onMount(() => {
-		getWeather('Miami');
+		let location = getLocation();
+		getWeather(location.city);
 	});
 </script>
 
